@@ -4,7 +4,7 @@ session_start();
 try {
     // Check if the host is allowed
     $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : "none";
-    $allowedHosts = ['beta.chirpsocial.net', '127.0.0.1:5500', '192.168.1.230:5500']; // add hosts to the variable as you see fit.
+    $allowedHosts = ['beta.chirpsocial.net', '127.0.0.1:5500', '192.168.1.230:5500', 'chirpbeta.pages.dev']; // add hosts to the variable as you see fit.
     if ($host === "none" || !in_array($host, $allowedHosts)) {
         header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
         exit;
@@ -36,7 +36,7 @@ try {
     $userId = $user['id'];
 
     // Define rate limiting parameters
-    define('MAX_CHARS', 240); // Maximum characters allowed for a chirp
+    define('MAX_CHARS', 580); // Maximum characters allowed for a chirp
 
     // Check if the last submission time and attempt count are stored in the session
     $lastSubmissionTime = isset($_SESSION['last_submission_time']) ? $_SESSION['last_submission_time'] : 0;
